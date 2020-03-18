@@ -1,0 +1,93 @@
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="mx-auto" style="margin-top: 30px;">
+        <h1>WADS Exercise 4</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin flex-row my-5">  
+          <div class="card-body" style="background-color: #353535 !important;">
+            <h5 class="card-title text-center" style="color: white;">Log In</h5>
+            <form #loginForm="ngForm" (ngSubmit)="login(loginForm)" class="form-signin">
+
+              <div class="row" *ngIf="authError">
+                <div class="col-12 alert alert-danger">{{ authError?.message }}</div>
+              </div>
+
+              <div class="form-label-group">
+                <label for="inputEmail" style="color: white;">Email address</label>
+                <input ngModel #email="ngModel" name="email"  type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+              </div>
+
+              <div class="form-label-group">
+                <label for="inputPassword" style="color: white;">Password</label>
+                <input ngModel #password="ngModel" name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+              </div>
+
+              <div class="custom-control custom-checkbox mb-3">
+                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1" style="color: white;">Remember password</label>
+              </div>
+              <button class="btn btn-lg btn-light btn-block text-uppercase" type="submit">Log In</button>
+              <a class="d-block text-center mt-2 small" href="#">Forgot password?</a>
+
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin flex-row my-5">
+          <div class="card-body">
+            <h5 class="card-title text-center">Register</h5>
+            <div class="row" *ngIf="authError">
+              <div class="col-12 alert alert-danger">
+                {{ authError?.message }}
+              </div>
+            </div>
+            <form #userRegForm="ngForm" (ngSubmit)="createUser(userRegForm)" class="form-signin">
+
+              <div class="form-label-group">
+                <label for="inputUserame">First name</label>
+                <input ngModel #firstname="ngModel" name="firstName" type="text" id="inputUserame" class="form-control" placeholder="Username" required>
+              </div>
+
+              <div class="form-label-group">
+                <label for="inputUserame">Last name</label>
+                <input ngModel #lastname="ngModel" name="lastName" type="text" id="inputUserame" class="form-control" placeholder="Username" required>
+              </div>
+
+              <div class="form-label-group">
+                <label for="inputEmail">Email address</label>
+                <input ngModel #email="ngModel" name="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required>
+              </div>
+              
+              <hr>
+
+              <div class="form-label-group">
+                <label for="inputPassword">Password</label>
+                <input ngModel #password="ngModel" name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+              </div>
+              
+              <div class="form-label-group">
+                <label for="inputConfirmPassword">Confirm password</label>
+                <input name="password" type="password" id="inputConfirmPassword" class="form-control" placeholder="Password" required>
+              </div>
+
+              <button class="btn btn-lg btn-dark btn-block text-uppercase" type="submit">Register</button>
+
+              <hr class="my-4">
+
+              <button class="btn btn-lg btn-google btn-block text-uppercase" disabled><i class="fab fa-google mr-2"></i> Sign up with Google</button>
+              <button class="btn btn-lg btn-facebook btn-block text-uppercase" type="submit" disabled><i class="fab fa-facebook-f mr-2"></i> Sign up with Facebook</button>
+              <h6 class="text-center"><br>Coming Soon!</h6> 
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+<!-- inspiration: https://startbootstrap.com/snippets/registration-page/ -->

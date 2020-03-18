@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "eris-wads-exercise4": {
+      "hosting": {
+        "FirebaseAuth": [
+          "eris-wads-exercise4"
+        ]
+      }
+    }
+  }
+}

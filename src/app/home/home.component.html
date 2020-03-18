@@ -1,0 +1,17 @@
+<body id="page-top">
+    <header class="masthead d-flex">
+        <div class="container text-center my-auto">
+        <h1 class="mb-1" *ngIf="user">Welcome, {{ user?.displayName }}!</h1>
+        <h1 class="mb-1" *ngIf="!user">You are logged out!</h1>
+        <h3 class="mb-5">
+            <em *ngIf="user">Your email: {{ user?.email }}</em>
+            <em *ngIf="!user">Please log in again.</em>
+        </h3>
+        <button class="btn btn-primary btn-xl" (click)="logout()" *ngIf="user">Log Out</button>
+        <button class="btn btn-primary btn-xl" (click)="login()" *ngIf="!user">Log In</button>
+        </div>
+        <div class="overlay"></div>
+    </header>
+</body>
+
+<!-- inspired by: https://github.com/BlackrockDigital/startbootstrap-stylish-portfolio -->
