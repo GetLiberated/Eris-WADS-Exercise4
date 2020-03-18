@@ -4,4 +4,4 @@ Muhammad Erizky - 2201797052
 
 ## Live demo
 
-eris-wads-exercise4.firebaseapp.com
+https://eris-wads-exercise4.firebaseapp.com
