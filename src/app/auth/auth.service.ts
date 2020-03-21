@@ -31,7 +31,7 @@ export class AuthService {
       })
       .then(userCredential => {
         if(userCredential) {
-          sessionStorage.setItem('SessionUser', '1');
+          localStorage.setItem('SessionUser', '1');
           this.router.navigate(['/home']);
         }
       })
@@ -65,6 +65,8 @@ export class AuthService {
   }
 
   logout() {
+    // localStorage.removeItem('SessionUser');
+    localStorage.clear();
     return this.afAuth.auth.signOut();
   }
 }
