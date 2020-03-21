@@ -31,6 +31,7 @@ export class AuthService {
       })
       .then(userCredential => {
         if(userCredential) {
+          sessionStorage.setItem('SessionUser', '1');
           this.router.navigate(['/home']);
         }
       })
