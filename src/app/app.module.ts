@@ -12,7 +12,7 @@ import { environment } from 'src/environments/environment';
 import { RegistrationComponent } from './auth/registration/registration.component';
 import { LoginComponent } from './auth/login/login.component';
 import { HomeComponent } from './home/home.component';
-import { AuthguardService } from './authguard.service';
+import { AdminLayoutModule } from './admin-layout/admin-layout.module';  
 
 @NgModule({
   declarations: [
@@ -27,10 +27,10 @@ import { AuthguardService } from './authguard.service';
     AppRoutingModule,
     AngularFireModule.initializeApp( environment.firebase),
     AngularFireAuthModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    AdminLayoutModule
   ],
   providers: [
-    AuthguardService
   ],
   bootstrap: [AppComponent]
 })

@@ -7,6 +7,7 @@
             <em *ngIf="user">Your email: {{ user?.email }}</em>
             <em *ngIf="!user">Please log in again.</em>
         </h3>
+        <button class="btn btn-primary btn-xl" (click)="admin()" *ngIf="user">Admin</button>
         <button class="btn btn-primary btn-xl" (click)="logout()" *ngIf="user">Log Out</button>
         <button class="btn btn-primary btn-xl" (click)="login()" *ngIf="!user">Log In</button>
         </div>

@@ -4,6 +4,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { ThrowStmt } from '@angular/compiler';
 import { BehaviorSubject } from 'rxjs';
+import { first } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +25,12 @@ export class AuthService {
     return this.afAuth.authState;
   }
 
+  isLoggedIn() {
+    return localStorage.getItem('loggedIn');;
+  }
+
+
+
   login( email: string, password: string) {
     this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .catch(error => {
@@ -31,7 +38,7 @@ export class AuthService {
       })
       .then(userCredential => {
         if(userCredential) {
-          localStorage.setItem('SessionUser', '1');
+          localStorage.setItem('loggedIn', '1');
           this.router.navigate(['/home']);
         }
       })
@@ -48,6 +55,7 @@ export class AuthService {
         });
 
         this.insertUserData(userCredential)
+        localStorage.setItem('loggedIn', '1');
         this.router.navigate(['/home']);
       })
       .catch( error => {
